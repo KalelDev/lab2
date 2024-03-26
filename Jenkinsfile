@@ -39,7 +39,7 @@ pipeline {
         stage('Docker Push') {
             steps {
                 script {
-                    sh "docker push ${env.IMAGE_NAME}"
+                    sh "/opt/homebrew/bin/docker push ${env.IMAGE_NAME}"
                 }
             }
         }
