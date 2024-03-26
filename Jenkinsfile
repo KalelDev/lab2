@@ -25,15 +25,17 @@ pipeline {
                 }
             }
         }
-        stage('Docker Login') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: env.DOCKER_CREDENTIAL_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        sh "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-                    }
+    stage('Docker Login') {
+        steps {
+            script {
+                withCredentials([usernamePassword(credentialsId: env.DOCKER_CREDENTIAL_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                    sh """
+                    echo $DOCKER_PASSWORD | /opt/homebrew/bin/docker login --username $DOCKER_USERNAME --password-stdin
+                    """
                 }
             }
         }
+    }
         stage('Docker Push') {
             steps {
                 script {
