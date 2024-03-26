@@ -21,7 +21,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh "docker build -t ${env.IMAGE_NAME} ."
+                    sh "/opt/homebrew/bin/docker build -t ${env.IMAGE_NAME} ."
                 }
             }
         }
