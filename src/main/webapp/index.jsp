@@ -1,7 +1,7 @@
 <%@ page import="java.util.Calendar" %> <% Calendar cal =
 Calendar.getInstance(); int hour = cal.get(Calendar.HOUR_OF_DAY); String
-greeting; if (hour < 12) { greeting = "Good morning"; } else { greeting = "Good
-afternoon"; } String name = "COMP367"; %>
+greeting = (hour < 12) ? "Good morning" : "Good afternoon"; String name =
+"COMP367"; %>
 
 <!DOCTYPE html>
 <html>
