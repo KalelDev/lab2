@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven "M3"
+    }
     environment {
         DOCKER_CREDENTIALS_ID = 'akhalee1_dockerhub'
         IMAGE_NAME = 'akhalee1/comp367lab3'
